@@ -1,4 +1,5 @@
 .cv-page {
-    flex: 5 1 auto;
+    flex: 1 1 auto;
     background: seashell;
+    max-width: 70%;
   }

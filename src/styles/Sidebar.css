@@ -1,4 +1,13 @@
 .sidebar {
-    flex: 3 1 auto;
+    flex: 1 1 auto;
     background: beige;
+    overflow: scroll;
+    max-height: 800px;
   }
+
+  .sidebar > div {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+

@@ -43,9 +43,11 @@ const experienceInfo = [
 export default function Sidebar() {
   return (
     <div className="sidebar">
-      <GeneralForm></GeneralForm>
-      <EducationForm educationInfo={educationInfo}></EducationForm>
-      <ExperienceForm experienceInfo={experienceInfo}></ExperienceForm>
+      <div className="container">
+        <GeneralForm></GeneralForm>
+        <EducationForm educationInfo={educationInfo}></EducationForm>
+        <ExperienceForm experienceInfo={experienceInfo}></ExperienceForm>
+      </div>
     </div>
   );
 }
