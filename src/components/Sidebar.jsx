@@ -1,7 +1,7 @@
 import "../styles/Sidebar.css";
-import EducationInputList from "./EducationInputList";
-import ExperienceInputList from "./ExperienceInputList";
-import GeneralInfoInputs from "./General-Info-inputs";
+import EducationForm from "./EducationForm";
+import ExperienceForm from "./ExperienceForm";
+import GeneralForm from "./GeneralForm";
 
 const educationInfo = [
   {
@@ -31,7 +31,7 @@ const experienceInfo = [
   },
 
   {
-    id : crypto.randomUUID(),
+    id: crypto.randomUUID(),
     company: "ABC incorporated",
     position: "junior fullstack",
     from: "2012 jan",
@@ -43,11 +43,9 @@ const experienceInfo = [
 export default function Sidebar() {
   return (
     <div className="sidebar">
-      <form action="" method="dialog">
-        <GeneralInfoInputs></GeneralInfoInputs>
-        <EducationInputList educationInfo={educationInfo}></EducationInputList>
-        <ExperienceInputList experienceInfo={experienceInfo}></ExperienceInputList>
-      </form>
+      <GeneralForm></GeneralForm>
+      <EducationForm educationInfo={educationInfo}></EducationForm>
+      <ExperienceForm experienceInfo={experienceInfo}></ExperienceForm>
     </div>
   );
 }

@@ -1,24 +1,23 @@
-export default function ExperienceInputList({ experienceInfo }) {
+export default function ExperienceForm({ experienceInfo }) {
   return (
-    <fieldset>
-      <legend>Experience</legend>
-      
-      {
-        experienceInfo.map((info) => {
-            return(
-                <ExperienceInputItem
-          key={info.id}
-          company={info.company}
-          position={info.position}
-          from={info.from}
-          to={info.to}
-          bullets={info.bullets}
-        ></ExperienceInputItem>
-            );
-        })
-      }
+    <form action="">
+      <fieldset>
+        <legend>Experience</legend>
 
-    </fieldset>
+        {experienceInfo.map((info) => {
+          return (
+            <ExperienceInputItem
+              key={info.id}
+              company={info.company}
+              position={info.position}
+              from={info.from}
+              to={info.to}
+              bullets={info.bullets}
+            ></ExperienceInputItem>
+          );
+        })}
+      </fieldset>
+    </form>
   );
 }
 
@@ -68,7 +67,7 @@ function ExperienceInputItem({ company, position, from, to, bullets }) {
         />
       </label>
 
-      <label className="flex-column" >
+      <label className="flex-column">
         Bullets (place #before each bullet point) :
         <textarea name="experience-bullets" cols="30" rows="10">
           {bullets}

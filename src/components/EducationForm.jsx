@@ -1,19 +1,21 @@
-export default function EducationInputList({ educationInfo }) {
+export default function EducationForm({ educationInfo }) {
   return (
-    <fieldset>
-      <legend>Education</legend>
-      {educationInfo.map((info) => {
-        return (
-          <EducationInputItem
-            key={info.id}
-            institute={info.institute}
-            certificateTitle={info.title}
-            year={info.year}
-            gpa={info.gpa}
-          ></EducationInputItem>
-        );
-      })}
-    </fieldset>
+    <form action="">
+      <fieldset>
+        <legend>Education</legend>
+        {educationInfo.map((info) => {
+          return (
+            <EducationInputItem
+              key={info.id}
+              institute={info.institute}
+              certificateTitle={info.title}
+              year={info.year}
+              gpa={info.gpa}
+            ></EducationInputItem>
+          );
+        })}
+      </fieldset>
+    </form>
   );
 }
 
