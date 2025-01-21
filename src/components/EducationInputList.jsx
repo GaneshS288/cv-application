@@ -11,7 +11,7 @@ export default function EducationInputList({educationInfo}) {
   );
 }
 
-function EducationInputItem({institute, certificateTitle, year, gpa}) {
+function EducationInputItem({institute, title, year, gpa}) {
   return (
     <div className="education-input-item flex-column">
       <label>
@@ -21,7 +21,7 @@ function EducationInputItem({institute, certificateTitle, year, gpa}) {
 
       <label>
         Certificate Title :
-        <input type="text" name="certificate-title" value={certificateTitle} placeholder="B.Sc. (Honours)" required />
+        <input type="text" name="certificate-title" value={title} placeholder="B.Sc. (Honours)" required />
       </label>
 
       <label>
