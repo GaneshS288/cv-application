@@ -3,23 +3,6 @@ import EducationForm from "./EducationForm";
 import ExperienceForm from "./ExperienceForm";
 import GeneralForm from "./GeneralForm";
 
-const educationInfo = [
-  {
-    id: crypto.randomUUID(),
-    institute: "Abc university",
-    title: "B.Sc. (Honours)",
-    year: 2020,
-    gpa: 4.2,
-  },
-  {
-    id: crypto.randomUUID(),
-    institute: "Abc university",
-    title: "B.Sc. (Honours)",
-    year: 2020,
-    gpa: 4.2,
-  },
-];
-
 const experienceInfo = [
   {
     id: crypto.randomUUID(),
@@ -40,13 +23,13 @@ const experienceInfo = [
   },
 ];
 
-export default function Sidebar({handleGeneralSubmit, handleEducationSubmit}) {
+export default function Sidebar({handleGeneralSubmit, handleEducationSubmit, handleExperienceSubmit}) {
   return (
     <div className="sidebar">
       <div className="container">
         <GeneralForm handleSubmit={handleGeneralSubmit}></GeneralForm>
         <EducationForm handleSubmit={handleEducationSubmit}></EducationForm>
-        <ExperienceForm experienceInfo={experienceInfo}></ExperienceForm>
+        <ExperienceForm handleSubmit={handleExperienceSubmit}></ExperienceForm>
       </div>
     </div>
   );

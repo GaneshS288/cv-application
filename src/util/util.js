@@ -5,8 +5,21 @@ export function parseData(pair, dataArray) {
   const dataItem = dataArray.find((item) => item.id === id);
 
   if (dataItem) {
-    dataItem[propertyName] = value;
+    propertyName === "bullets" ? dataItem[propertyName] = splitBulletPoints(value) : dataItem[propertyName] = value;
   } else {
     dataArray.push({ id: id, [propertyName] : value});
   }
+}
+
+function splitBulletPoints(bulletsString) {
+  let bulletsArray = bulletsString.split("#");
+  bulletsArray.shift();
+  
+  bulletsArray = bulletsArray.map((string) => {
+    let transFromedString = string.trim();
+
+    return transFromedString;
+  })
+
+  return bulletsArray;
 }

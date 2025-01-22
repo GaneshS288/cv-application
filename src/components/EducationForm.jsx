@@ -1,11 +1,11 @@
 import { useState } from "react";
 
-export default function EducationForm({handleSubmit}) {
+export default function EducationForm({ handleSubmit }) {
   let [educationInputIds, setEducationInputIds] = useState([]);
 
   function handleDeleteInput(event) {
     const currentId = event.target.dataset.id;
-    const filteredIds = educationInputIds.filter((id) => id !==currentId);
+    const filteredIds = educationInputIds.filter((id) => id !== currentId);
     setEducationInputIds(filteredIds);
   }
 
@@ -14,24 +14,32 @@ export default function EducationForm({handleSubmit}) {
       <fieldset>
         <legend>Education</legend>
         {educationInputIds.map((id) => {
-          return <EducationInputItem key={id} id={id} handleDeleteInput={handleDeleteInput}></EducationInputItem>;
+          return (
+            <EducationInputItem
+              key={id}
+              id={id}
+              handleDeleteInput={handleDeleteInput}
+            ></EducationInputItem>
+          );
         })}
 
-        <button
-          type="button"
-          onClick={() =>
-            setEducationInputIds([...educationInputIds, crypto.randomUUID()])
-          }
-        >
-          Add
-        </button>
-        <button type="Submit">Submit</button>
+        <div>
+          <button
+            type="button"
+            onClick={() =>
+              setEducationInputIds([...educationInputIds, crypto.randomUUID()])
+            }
+          >
+            Add
+          </button>
+          <button type="Submit">Submit</button>
+        </div>
       </fieldset>
     </form>
   );
 }
 
-function EducationInputItem({id, handleDeleteInput}) {
+function EducationInputItem({ id, handleDeleteInput }) {
   return (
     <div className="education-input-item flex-column">
       <label>
@@ -69,7 +77,9 @@ function EducationInputItem({id, handleDeleteInput}) {
         <input type="text" name={id + "$" + "gpa"} placeholder="4.2" />
       </label>
 
-      <button type="button" data-id= {id} onClick={handleDeleteInput} >Delete</button>
+      <button type="button" data-id={id} onClick={handleDeleteInput}>
+        Delete
+      </button>
     </div>
   );
 }

@@ -12,14 +12,14 @@ function App() {
   });
 
   function handleGeneralSubmit(event) {
-    event.preventDefault()
+    event.preventDefault();
     let formData = new FormData(event.target);
     let data = {};
 
-    for(let pair of formData.entries()) {
+    for (let pair of formData.entries()) {
       data[pair[0]] = pair[1];
     }
-    setGeneralData({...data});
+    setGeneralData({ ...data });
   }
 
   let [educationData, setEducationData] = useState([]);
@@ -29,12 +29,25 @@ function App() {
     const formData = new FormData(event.target);
     const newEducationData = [];
 
-
     for (let pair of formData) {
       parseData(pair, newEducationData);
     }
-
     setEducationData([...newEducationData]);
+  }
+
+  let [experienceData , setExperienceData] = useState([]);
+
+  function handleExperienceSubmit(event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const newExperienceData = [];
+
+    for (let pair of formData) {
+      parseData(pair, newExperienceData)
+    }
+
+    console.log(newExperienceData);
+    setExperienceData([...newExperienceData]);
   }
 
   return (
@@ -43,7 +56,11 @@ function App() {
         <h1>CV Application</h1>
       </header>
       <div className="flex-row">
-        <Sidebar handleGeneralSubmit={handleGeneralSubmit} handleEducationSubmit={handleEducationSubmit}></Sidebar>
+        <Sidebar
+          handleGeneralSubmit={handleGeneralSubmit}
+          handleEducationSubmit={handleEducationSubmit}
+          handleExperienceSubmit={handleExperienceSubmit}
+        ></Sidebar>
         <CvSection info={generalData} educationData={educationData}></CvSection>
       </div>
     </>

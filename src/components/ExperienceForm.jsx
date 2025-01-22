@@ -1,35 +1,44 @@
-export default function ExperienceForm({ experienceInfo }) {
+import { useState } from "react";
+
+export default function ExperienceForm({handleSubmit}) {
+  let [experienceInputIds, setExperienceInputIds] = useState([]);
+
   return (
-    <form action="">
+    <form action="" onSubmit={handleSubmit} >
       <fieldset>
         <legend>Experience</legend>
 
-        {experienceInfo.map((info) => {
-          return (
-            <ExperienceInputItem
-              key={info.id}
-              company={info.company}
-              position={info.position}
-              from={info.from}
-              to={info.to}
-              bullets={info.bullets}
-            ></ExperienceInputItem>
-          );
+        {experienceInputIds.map((id) => {
+          return <ExperienceInputItem key={id} id={id}></ExperienceInputItem>;
         })}
+
+        <div>
+          <button
+            type="button"
+            onClick={() =>
+              setExperienceInputIds([
+                ...experienceInputIds,
+                crypto.randomUUID(),
+              ])
+            }
+          >
+            Add
+          </button>
+          <button type="submit">Submit</button>
+        </div>
       </fieldset>
     </form>
   );
 }
 
-function ExperienceInputItem({ company, position, from, to, bullets }) {
+function ExperienceInputItem({ id }) {
   return (
     <div className="experience-input-item flex-column">
       <label>
         Company :
         <input
           type="text"
-          name="company"
-          value={company}
+          name={id + "$" + "company"}
           placeholder="ABC corporations"
           required
         />
@@ -39,8 +48,7 @@ function ExperienceInputItem({ company, position, from, to, bullets }) {
         Position :
         <input
           type="text"
-          name="position"
-          value={position}
+          name={id + "$" + "position"}
           placeholder="Frontend Engineer"
           required
         />
@@ -50,8 +58,7 @@ function ExperienceInputItem({ company, position, from, to, bullets }) {
         From (year, month) :
         <input
           type="text"
-          name="experience-from"
-          value={from}
+          name={id + "$" + "from"}
           placeholder="2012 July"
           required
         />
@@ -61,17 +68,15 @@ function ExperienceInputItem({ company, position, from, to, bullets }) {
         To (year, month)
         <input
           type="text"
-          name="experience-to"
-          value={to}
+          name={id + "$" + "to"}
           placeholder="2016 August"
+          required
         />
       </label>
 
       <label className="flex-column">
-        Bullets (place #before each bullet point) :
-        <textarea name="experience-bullets" cols="30" rows="10">
-          {bullets}
-        </textarea>
+        Bullets (place # before every bullet) :
+        <textarea name={id + "$" + "bullets"} cols="30" rows="10"></textarea>
       </label>
     </div>
   );
