@@ -1,15 +1,16 @@
-export default function ExperienceList({ experienceInfo }) {
+export default function ExperienceList({ experienceData }) {
   return (
     <div className="Experience">
       <h2>Experience</h2>
-      {experienceInfo.map((info) => {
+      {experienceData.map((data) => {
         return (
           <ExperienceItem
-            key={info.id}
-            company={info.company}
-            position={info.position}
-            from={info.from}
-            to={info.to}
+            key={data.id}
+            company={data.company}
+            position={data.position}
+            from={data.from}
+            to={data.to}
+            bullets={data.bullets}
           ></ExperienceItem>
         );
       })}
@@ -17,7 +18,7 @@ export default function ExperienceList({ experienceInfo }) {
   );
 }
 
-function ExperienceItem({ company, position, from, to }) {
+function ExperienceItem({ company, position, from, to, bullets }) {
   return (
     <div>
       <div className="flex-row">
@@ -29,26 +30,11 @@ function ExperienceItem({ company, position, from, to }) {
       </div>
 
       <p>{position}</p>
+
       <ul>
-        <li>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid
-          eligendi beatae explicabo, molestiae veritatis expedita nisi ratione
-          illo.
-        </li>
-        <li>
-          Ullam sequi accusantium recusandae incidunt quia ab temporibus,
-          laborum harum excepturi, natus neque cupiditate quam, tempore
-          assumenda porro!
-        </li>
-        <li>
-          Voluptatum, possimus blanditiis rem officiis omnis doloribus saepe
-          architecto eum quibusdam reprehenderit alias. Similique pariatur
-          corporis illo eligendi!
-        </li>
-        <li>
-          Fugiat error facilis tempora ipsam nam molestias. Recusandae soluta
-          hic ullam vel iste dolorem dolores incidunt rem in.
-        </li>
+        {bullets.map((bullet) => (
+          <li key={bullet.bulletId}>{bullet.value}</li>
+        ))}
       </ul>
     </div>
   );

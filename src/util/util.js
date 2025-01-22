@@ -14,11 +14,11 @@ export function parseData(pair, dataArray) {
 function splitBulletPoints(bulletsString) {
   let bulletsArray = bulletsString.split("#");
   bulletsArray.shift();
-  
+
   bulletsArray = bulletsArray.map((string) => {
     let transFromedString = string.trim();
 
-    return transFromedString;
+    return {bulletId : crypto.randomUUID(), value : transFromedString}
   })
 
   return bulletsArray;

@@ -40,7 +40,7 @@ const experienceInfo = [
   },
 ];
 
-export default function CvSection({educationData, info}) {
+export default function CvSection({educationData, info, experienceData}) {
   return (
     <div className="cv-page">
       <div className="container">
@@ -50,7 +50,7 @@ export default function CvSection({educationData, info}) {
           phone={info.phone}
         ></GeneralInfo>
         <EducationList educationData={educationData}></EducationList>
-        <ExperienceList experienceInfo= {experienceInfo} ></ExperienceList>
+        <ExperienceList experienceData={experienceData}></ExperienceList>
       </div>
     </div>
   );

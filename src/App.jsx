@@ -61,7 +61,7 @@ function App() {
           handleEducationSubmit={handleEducationSubmit}
           handleExperienceSubmit={handleExperienceSubmit}
         ></Sidebar>
-        <CvSection info={generalData} educationData={educationData}></CvSection>
+        <CvSection info={generalData} educationData={educationData} experienceData={experienceData}></CvSection>
       </div>
     </>
   );
