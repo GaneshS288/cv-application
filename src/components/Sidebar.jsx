@@ -40,12 +40,12 @@ const experienceInfo = [
   },
 ];
 
-export default function Sidebar({handleGeneralData}) {
+export default function Sidebar({handleGeneralSubmit, handleEducationSubmit}) {
   return (
     <div className="sidebar">
       <div className="container">
-        <GeneralForm handleSubmit={handleGeneralData}></GeneralForm>
-        <EducationForm educationInfo={educationInfo}></EducationForm>
+        <GeneralForm handleSubmit={handleGeneralSubmit}></GeneralForm>
+        <EducationForm handleSubmit={handleEducationSubmit}></EducationForm>
         <ExperienceForm experienceInfo={experienceInfo}></ExperienceForm>
       </div>
     </div>

@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function EducationForm() {
+export default function EducationForm({handleSubmit}) {
   let [educationInputIds, setEducationInputIds] = useState([]);
 
   function handleDeleteInput(event) {
@@ -10,7 +10,7 @@ export default function EducationForm() {
   }
 
   return (
-    <form action="">
+    <form action="" onSubmit={handleSubmit}>
       <fieldset>
         <legend>Education</legend>
         {educationInputIds.map((id) => {
@@ -38,7 +38,7 @@ function EducationInputItem({id, handleDeleteInput}) {
         Intstitue :
         <input
           type="text"
-          name={id + "-" + "institute"}
+          name={id + "$" + "institute"}
           placeholder="Institute Name"
           required
         />
@@ -48,7 +48,7 @@ function EducationInputItem({id, handleDeleteInput}) {
         Certificate Title :
         <input
           type="text"
-          name={id + "-" + "title"}
+          name={id + "$" + "title"}
           placeholder="B.Sc. (Honours)"
           required
         />
@@ -58,7 +58,7 @@ function EducationInputItem({id, handleDeleteInput}) {
         Year :
         <input
           type="number"
-          name={id + "-" + "year"}
+          name={id + "$" + "year"}
           placeholder="2020"
           required
         />
@@ -66,7 +66,7 @@ function EducationInputItem({id, handleDeleteInput}) {
 
       <label>
         GPA :
-        <input type="text" name={id + "-" + "gpa"} placeholder="4.2" />
+        <input type="text" name={id + "$" + "gpa"} placeholder="4.2" />
       </label>
 
       <button type="button" data-id= {id} onClick={handleDeleteInput} >Delete</button>

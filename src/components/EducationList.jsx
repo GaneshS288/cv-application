@@ -1,8 +1,8 @@
-export default function EducationList({ educationInfo }) {
+export default function EducationList({ educationData }) {
   return (
     <div className="Education">
       <h2>Education</h2>
-      {educationInfo.map((info) => [
+      {educationData.map((info) => [
         <EducationListItem
           key={info.id}
           institue={info.institute}
