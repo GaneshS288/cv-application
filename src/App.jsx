@@ -14,6 +14,8 @@ function App() {
     event.preventDefault()
     let formData = new FormData(event.target);
     let data = {};
+
+    console.log(formData.entries())
     for(let pair of formData.entries()) {
       data[pair[0]] = pair[1];
     }
@@ -26,7 +28,7 @@ function App() {
         <h1>CV Application</h1>
       </header>
       <div className="flex-row">
-        <Sidebar handleGeneralInfo={handleGeneralSubmit}></Sidebar>
+        <Sidebar handleGeneralData={handleGeneralSubmit}></Sidebar>
         <CvSection info={generalInfo}></CvSection>
       </div>
     </>

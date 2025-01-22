@@ -1,33 +1,44 @@
-export default function EducationForm({ educationInfo }) {
+import { useState } from "react";
+
+export default function EducationForm() {
+  let [educationInputIds, setEducationInputIds] = useState([]);
+
+  function handleDeleteInput(event) {
+    const currentId = event.target.dataset.id;
+    const filteredIds = educationInputIds.filter((id) => id !==currentId);
+    setEducationInputIds(filteredIds);
+  }
+
   return (
     <form action="">
       <fieldset>
         <legend>Education</legend>
-        {educationInfo.map((info) => {
-          return (
-            <EducationInputItem
-              key={info.id}
-              institute={info.institute}
-              certificateTitle={info.title}
-              year={info.year}
-              gpa={info.gpa}
-            ></EducationInputItem>
-          );
+        {educationInputIds.map((id) => {
+          return <EducationInputItem key={id} id={id} handleDeleteInput={handleDeleteInput}></EducationInputItem>;
         })}
+
+        <button
+          type="button"
+          onClick={() =>
+            setEducationInputIds([...educationInputIds, crypto.randomUUID()])
+          }
+        >
+          Add
+        </button>
+        <button type="Submit">Submit</button>
       </fieldset>
     </form>
   );
 }
 
-function EducationInputItem({ institute, title, year, gpa }) {
+function EducationInputItem({id, handleDeleteInput}) {
   return (
     <div className="education-input-item flex-column">
       <label>
         Intstitue :
         <input
           type="text"
-          name="institute"
-          value={institute}
+          name={id + "-" + "institute"}
           placeholder="Institute Name"
           required
         />
@@ -37,8 +48,7 @@ function EducationInputItem({ institute, title, year, gpa }) {
         Certificate Title :
         <input
           type="text"
-          name="certificate-title"
-          value={title}
+          name={id + "-" + "title"}
           placeholder="B.Sc. (Honours)"
           required
         />
@@ -48,8 +58,7 @@ function EducationInputItem({ institute, title, year, gpa }) {
         Year :
         <input
           type="number"
-          name="certification-year"
-          value={year}
+          name={id + "-" + "year"}
           placeholder="2020"
           required
         />
@@ -57,8 +66,10 @@ function EducationInputItem({ institute, title, year, gpa }) {
 
       <label>
         GPA :
-        <input type="text" name="gpa" value={gpa} placeholder="4.2" />
+        <input type="text" name={id + "-" + "gpa"} placeholder="4.2" />
       </label>
+
+      <button type="button" data-id= {id} onClick={handleDeleteInput} >Delete</button>
     </div>
   );
 }
