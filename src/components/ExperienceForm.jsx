@@ -3,13 +3,20 @@ import { useState } from "react";
 export default function ExperienceForm({handleSubmit}) {
   let [experienceInputIds, setExperienceInputIds] = useState([]);
 
+  function handleDeleteInput(event) {
+    const currentId = event.target.dataset.id;
+    const filteredIds = experienceInputIds.filter((id) => id !== currentId);
+
+    setExperienceInputIds(filteredIds);
+  }
+
   return (
     <form action="" onSubmit={handleSubmit} >
       <fieldset>
         <legend>Experience</legend>
 
         {experienceInputIds.map((id) => {
-          return <ExperienceInputItem key={id} id={id}></ExperienceInputItem>;
+          return <ExperienceInputItem key={id} id={id} handleDeleteInput={handleDeleteInput}></ExperienceInputItem>;
         })}
 
         <div>
@@ -31,7 +38,7 @@ export default function ExperienceForm({handleSubmit}) {
   );
 }
 
-function ExperienceInputItem({ id }) {
+function ExperienceInputItem({ id, handleDeleteInput }) {
   return (
     <div className="experience-input-item flex-column">
       <label>
@@ -78,6 +85,8 @@ function ExperienceInputItem({ id }) {
         Bullets (place # before every bullet) :
         <textarea name={id + "$" + "bullets"} cols="30" rows="10"></textarea>
       </label>
+
+      <button type="button" data-id={id} onClick={handleDeleteInput} >Delete</button>
     </div>
   );
 }
