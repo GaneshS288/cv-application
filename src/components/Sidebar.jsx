@@ -2,6 +2,7 @@ import "../styles/Sidebar.css";
 import EducationForm from "./EducationForm";
 import ExperienceForm from "./ExperienceForm";
 import GeneralForm from "./GeneralForm";
+import ProjectsForm from "./ProjectsForm";
 
 const experienceInfo = [
   {
@@ -23,13 +24,14 @@ const experienceInfo = [
   },
 ];
 
-export default function Sidebar({handleGeneralSubmit, handleEducationSubmit, handleExperienceSubmit}) {
+export default function Sidebar({handleGeneralSubmit, handleEducationSubmit, handleExperienceSubmit, handleProjectsSubmit}) {
   return (
     <div className="sidebar">
       <div className="container">
         <GeneralForm handleSubmit={handleGeneralSubmit}></GeneralForm>
         <EducationForm handleSubmit={handleEducationSubmit}></EducationForm>
         <ExperienceForm handleSubmit={handleExperienceSubmit}></ExperienceForm>
+        <ProjectsForm handleSubmit={handleProjectsSubmit}></ProjectsForm>
       </div>
     </div>
   );

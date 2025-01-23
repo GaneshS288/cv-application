@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function ExperienceForm({handleSubmit}) {
+export default function ExperienceForm({ handleSubmit }) {
   let [experienceInputIds, setExperienceInputIds] = useState([]);
 
   function handleDeleteInput(event) {
@@ -11,12 +11,18 @@ export default function ExperienceForm({handleSubmit}) {
   }
 
   return (
-    <form action="" onSubmit={handleSubmit} >
+    <form action="" onSubmit={handleSubmit}>
       <fieldset>
         <legend>Experience</legend>
 
         {experienceInputIds.map((id) => {
-          return <ExperienceInputItem key={id} id={id} handleDeleteInput={handleDeleteInput}></ExperienceInputItem>;
+          return (
+            <ExperienceInputItem
+              key={id}
+              id={id}
+              handleDeleteInput={handleDeleteInput}
+            ></ExperienceInputItem>
+          );
         })}
 
         <div>
@@ -86,7 +92,9 @@ function ExperienceInputItem({ id, handleDeleteInput }) {
         <textarea name={id + "$" + "bullets"} cols="30" rows="10"></textarea>
       </label>
 
-      <button type="button" data-id={id} onClick={handleDeleteInput} >Delete</button>
+      <button type="button" data-id={id} onClick={handleDeleteInput}>
+        Delete
+      </button>
     </div>
   );
 }

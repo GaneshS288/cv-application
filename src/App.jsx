@@ -35,7 +35,7 @@ function App() {
     setEducationData([...newEducationData]);
   }
 
-  let [experienceData , setExperienceData] = useState([]);
+  let [experienceData, setExperienceData] = useState([]);
 
   function handleExperienceSubmit(event) {
     event.preventDefault();
@@ -43,11 +43,22 @@ function App() {
     const newExperienceData = [];
 
     for (let pair of formData) {
-      parseData(pair, newExperienceData)
+      parseData(pair, newExperienceData);
     }
-
-    console.log(newExperienceData);
     setExperienceData([...newExperienceData]);
+  }
+
+  let [projectsData, setProjectsData] = useState([]);
+
+  function handleProjectsSubmit(event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const newProjectsData = [];
+
+    for (let pair of formData) {
+      parseData(pair, newProjectsData);
+    }
+    console.log(newProjectsData);
   }
 
   return (
@@ -60,8 +71,13 @@ function App() {
           handleGeneralSubmit={handleGeneralSubmit}
           handleEducationSubmit={handleEducationSubmit}
           handleExperienceSubmit={handleExperienceSubmit}
+          handleProjectsSubmit={handleProjectsSubmit}
         ></Sidebar>
-        <CvSection info={generalData} educationData={educationData} experienceData={experienceData}></CvSection>
+        <CvSection
+          generalInfo={generalData}
+          educationData={educationData}
+          experienceData={experienceData}
+        ></CvSection>
       </div>
     </>
   );
