@@ -59,6 +59,8 @@ function App() {
       parseData(pair, newProjectsData);
     }
     console.log(newProjectsData);
+
+    setProjectsData([...newProjectsData]);
   }
 
   return (
@@ -77,6 +79,7 @@ function App() {
           generalInfo={generalData}
           educationData={educationData}
           experienceData={experienceData}
+          projectsData={projectsData}
         ></CvSection>
       </div>
     </>
