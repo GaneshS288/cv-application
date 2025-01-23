@@ -23,3 +23,17 @@ function splitBulletPoints(bulletsString) {
 
   return bulletsArray;
 }
+
+export function createSubmitHandler(setStateFunction) {
+  return(function (event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const newData = [];
+
+    for (let pair of formData) {
+      parseData(pair, newData);
+    }
+
+    setStateFunction([...newData])
+  })
+}

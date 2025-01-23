@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import Sidebar from "./components/Sidebar.jsx";
 import CvSection from "./components/CvSection.jsx";
-import { parseData } from "./util/util.js";
+import { createSubmitHandler } from "./util/util.js";
 
 function App() {
   let [generalData, setGeneralData] = useState({
@@ -23,45 +23,13 @@ function App() {
   }
 
   let [educationData, setEducationData] = useState([]);
-
-  function handleEducationSubmit(event) {
-    event.preventDefault();
-    const formData = new FormData(event.target);
-    const newEducationData = [];
-
-    for (let pair of formData) {
-      parseData(pair, newEducationData);
-    }
-    setEducationData([...newEducationData]);
-  }
+  const handleEducationSubmit = createSubmitHandler(setEducationData);
 
   let [experienceData, setExperienceData] = useState([]);
-
-  function handleExperienceSubmit(event) {
-    event.preventDefault();
-    const formData = new FormData(event.target);
-    const newExperienceData = [];
-
-    for (let pair of formData) {
-      parseData(pair, newExperienceData);
-    }
-    setExperienceData([...newExperienceData]);
-  }
+  const handleExperienceSubmit = createSubmitHandler(setExperienceData);
 
   let [projectsData, setProjectsData] = useState([]);
-
-  function handleProjectsSubmit(event) {
-    event.preventDefault();
-    const formData = new FormData(event.target);
-    const newProjectsData = [];
-
-    for (let pair of formData) {
-      parseData(pair, newProjectsData);
-    }
-    console.log(newProjectsData);
-
-    setProjectsData([...newProjectsData]);
-  }
+  const handleProjectsSubmit = createSubmitHandler(setProjectsData);
 
   return (
     <>
