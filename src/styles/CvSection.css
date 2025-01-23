@@ -1,5 +1,12 @@
+:root {
+	--dark-blue: #0d1b2a;
+	--light-black: #1b263b;
+	--medium-grey: #6b705c;
+	--light-grey: #778da9;
+	--cream-white: #e0e1dd;
+}
+
 .cv-page {
     flex: 1 1 auto;
-    background: seashell;
-    max-width: 70%;
+    background: lightgoldenrodyellow;
   }

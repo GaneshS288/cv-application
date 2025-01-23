@@ -1,0 +1,31 @@
+:root {
+	--dark-blue: #0d1b2a;
+	--light-black: #1b263b;
+	--medium-grey: #6b705c;
+	--light-grey: #778da9;
+	--cream-white: #e0e1dd;
+}
+
+.experience-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.experience-list > div > * {
+    margin-bottom: 0.4rem;
+}
+
+.experience-list > div > div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.experience-list > div > p {
+    font: italic 1.1rem "Helvetica", sans-serif;
+    color: var(--dark-blue);
+}
+
+.from-to-container {
+    font: italic 1rem "Helvetica", sans-serif;
+}

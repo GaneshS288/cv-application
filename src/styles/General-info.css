@@ -1,3 +1,11 @@
+:root {
+	--dark-blue: #0d1b2a;
+	--light-black: #1b263b;
+	--medium-grey: #6b705c;
+	--light-grey: #778da9;
+	--cream-white: #e0e1dd;
+}
+
 .general-info {
     display: flex;
     flex-direction: column;
@@ -5,3 +13,9 @@
     align-items: center;
     gap: 0.4rem;
 }
+
+.general-info > p {
+    font: italic 1rem "Helvetica", "Times New Roman";
+    color: var(--light-black);
+}
+

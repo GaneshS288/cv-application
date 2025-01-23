@@ -1,8 +1,8 @@
 .sidebar {
     flex: 1 1 auto;
     background: beige;
-    overflow: scroll;
-    max-height: 800px;
+    overflow: auto;
+    max-width: 30%;
   }
 
   .sidebar > div {

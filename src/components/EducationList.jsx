@@ -1,6 +1,8 @@
+import "../styles/EducationList.css"
+
 export default function EducationList({ educationData }) {
   return (
-    <div className="Education">
+    <div className="education-list">
       <h2>Education</h2>
       {educationData.map((info) => [
         <EducationListItem
@@ -20,12 +22,12 @@ function EducationListItem({ institue, title, year, gpa }) {
   return (
     <div className="flex-row">
       <div>
-        <h4>{institue}</h4>
-        <p>{title}</p>
-        <p>{gpa}</p>
+        <h4 className="intitute">{institue}</h4>
+        <p className="title">{title}</p>
+        <p className="gpa">{gpa}</p>
       </div>
 
-      <p>{year}</p>
+      <p className="year">{year}</p>
     </div>
   );
 }

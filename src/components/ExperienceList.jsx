@@ -1,6 +1,8 @@
+import "../styles/ExperienceList.css";
+
 export default function ExperienceList({ experienceData }) {
   return (
-    <div className="Experience">
+    <div className="experience-list">
       <h2>Experience</h2>
       {experienceData.map((data) => {
         return (
@@ -24,12 +26,12 @@ function ExperienceItem({ company, position, from, to, bullets }) {
       <div className="flex-row">
         <h4>{company}</h4>
 
-        <div>
-          <span>{from}</span> <span>{to}</span>
+        <div className="from-to-container">
+          <span>{from}</span>-<span>{to}</span>
         </div>
       </div>
 
-      <p>{position}</p>
+      <p>({position})</p>
 
       <ul>
         {bullets.map((bullet) => (

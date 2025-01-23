@@ -54,6 +54,14 @@ table {
 
 /*reused styles below*/
 
+:root {
+	--dark-blue: #0d1b2a;
+	--light-black: #1b263b;
+	--medium-grey: #6b705c;
+	--light-grey: #778da9;
+	--cream-white: #e0e1dd;
+}
+
 .flex-column {
   display: flex;
   flex-direction: column;
@@ -111,23 +119,47 @@ textarea {
 }
 
 h2 {
-	font: 1.6rem "Times New Roman";
+	font: 600 1.8rem "Trebuchet MS", sans-serif;
+	color: var(--light-black);
 }
 
 h4 {
-	font: 1.4rem "Times New Roman";
+	font: 600 1.2rem "Trebuchet MS", sans-serif;
+	color: var(--light-black);
 }
 
 p {
 	font: 1.2rem roboto;
 }
 
+hr {
+    width: 100%;
+    border: 1px solid var(--medium-grey);
+}
+
+ul {
+	padding-left: 1rem;
+}
+
+li {
+	font: italic 1rem "Helvetica", sans-serif;
+	padding-bottom: 0.4rem;
+	color: rgb(31, 31, 49);
+}
+
+li::marker {
+	content: "◾";
+	font-size: 1rem;
+}
+
 header {
   padding: 1rem 0;
   text-align: center;
+  background-color: var(--dark-blue);
 }
 
-#root > div{
-  flex: 1 1 auto;
+header > h1 {
+	color: var(--cream-white);
+	font: bold 2rem "Georgia", "Times New Roman";
 }
 
