@@ -16,7 +16,7 @@ export default function GeneralInfoInputs({handleSubmit}) {
           <input type="tel" id="phone" name="phone" required />
         </div>
 
-        <button type="submit">Submit</button>
+        <div><button type="submit">Submit</button></div>
       </fieldset>
     </form>
   );

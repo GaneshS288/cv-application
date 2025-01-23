@@ -1,8 +1,18 @@
+
+:root {
+	--dark-blue: #0d1b2a;
+	--light-black: #1b263b;
+	--medium-grey: #6b705c;
+	--light-grey: #778da9;
+	--cream-white: #e0e1dd;
+}
+
 .sidebar {
     flex: 1 1 auto;
-    background: beige;
     overflow: auto;
     max-width: 30%;
+    background-color: var(--cream-white);
+    max-height: 800px;
   }
 
   .sidebar > div {
